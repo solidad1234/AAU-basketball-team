@@ -11,16 +11,27 @@ export default function TitlebarBelowMasonryImageList() {
   const [mode, setMode] = React.useState('view'); // 'view', 'changeImage', or 'changeDescription'
   const [selectedItemIndex, setSelectedItemIndex] = React.useState(null);
   const [imageStates, setImageStates] = React.useState(() => {
-    const savedData = localStorage.getItem('imageStates');
-    return savedData ? JSON.parse(savedData) : itemData.map(item => ({
-      ...item,
-      imageUrl: item.img,
-      description: item.title,
-    }));
+    if (typeof window !== 'undefined') {
+      const savedData = localStorage.getItem('imageStates');
+      return savedData ? JSON.parse(savedData) : itemData.map(item => ({
+        ...item,
+        imageUrl: item.img,
+        description: item.title,
+      }));
+    } else {
+      // If it's not in the browser environment, return default item data
+      return itemData.map(item => ({
+        ...item,
+        imageUrl: item.img,
+        description: item.title,
+      }));
+    }
   });
 
   const saveToLocalStorage = (newStates) => {
-    localStorage.setItem('imageStates', JSON.stringify(newStates));
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('imageStates', JSON.stringify(newStates));
+    }
   };
 
   const handleModeToggle = (index) => {
@@ -118,42 +129,27 @@ const itemData = [
   },
   {
     img: '/images/team2.jpeg',
-    title: 'Sink',
+    title: 'First Team',
   },
   {
     img: '/images/team3.jpeg',
-    title: 'Kitchen',
+    title: 'Books',
   },
   {
     img: '/images/team2.jpeg',
-    title: 'Blinds',
-  },
-  {
-    img: '/images/team2.jpeg',
-    title: 'Chairs',
+    title: 'First Team',
   },
   {
     img: '/images/team3.jpeg',
-    title: 'Laptop',
+    title: 'Books',
   },
   {
     img: '/images/team2.jpeg',
-    title: 'Doors',
+    title: 'First Team',
   },
   {
     img: '/images/team3.jpeg',
-    title: 'Coffee',
+    title: 'Books',
   },
-  {
-    img: '/images/team2.jpeg',
-    title: 'Storage',
-  },
-  {
-    img: '/images/team3.jpeg',
-    title: 'Candle',
-  },
-  {
-    img: '/images/team2.jpeg',
-    title: 'Coffee table',
-  },
+  
 ];
