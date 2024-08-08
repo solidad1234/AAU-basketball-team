@@ -10,11 +10,22 @@ import TextField from '@mui/material/TextField';
 export default function TitlebarBelowMasonryImageList() {
   const [mode, setMode] = React.useState('view'); // 'view', 'changeImage', or 'changeDescription'
   const [selectedItemIndex, setSelectedItemIndex] = React.useState(null);
-  const [imageStates, setImageStates] = React.useState(itemData.map(item => ({
-    ...item,
-    imageUrl: item.img,
-    description: item.title,
-  })));
+  const [imageStates, setImageStates] = React.useState(itemData);
+
+  React.useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const savedData = localStorage.getItem('imageStates');
+      if (savedData) {
+        setImageStates(JSON.parse(savedData));
+      }
+    }
+  }, []);
+
+  const saveToLocalStorage = (newStates) => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('imageStates', JSON.stringify(newStates));
+    }
+  };
 
   const handleModeToggle = (index) => {
     setSelectedItemIndex(index);
@@ -27,11 +38,11 @@ export default function TitlebarBelowMasonryImageList() {
       if (file) {
         const reader = new FileReader();
         reader.onloadend = () => {
-          setImageStates(prevStates => {
-            const newStates = [...prevStates];
-            newStates[selectedItemIndex].imageUrl = reader.result;
-            return newStates;
-          });
+          const newStates = imageStates.map((item, index) =>
+            index === selectedItemIndex ? { ...item, imageUrl: reader.result } : item
+          );
+          setImageStates(newStates);
+          saveToLocalStorage(newStates);
           setMode('view');
         };
         reader.readAsDataURL(file);
@@ -41,11 +52,11 @@ export default function TitlebarBelowMasonryImageList() {
 
   const handleDescriptionChange = (e) => {
     if (selectedItemIndex !== null) {
-      setImageStates(prevStates => {
-        const newStates = [...prevStates];
-        newStates[selectedItemIndex].description = e.target.value;
-        return newStates;
-      });
+      const newStates = imageStates.map((item, index) =>
+        index === selectedItemIndex ? { ...item, description: e.target.value } : item
+      );
+      setImageStates(newStates);
+      saveToLocalStorage(newStates);
     }
   };
 
@@ -111,42 +122,26 @@ const itemData = [
   },
   {
     img: '/images/team2.jpeg',
-    title: 'Sink',
+    title: 'First Team',
   },
   {
     img: '/images/team3.jpeg',
-    title: 'Kitchen',
+    title: 'Books',
   },
   {
     img: '/images/team2.jpeg',
-    title: 'Blinds',
-  },
-  {
-    img: '/images/team2.jpeg',
-    title: 'Chairs',
+    title: 'First Team',
   },
   {
     img: '/images/team3.jpeg',
-    title: 'Laptop',
+    title: 'Books',
   },
   {
     img: '/images/team2.jpeg',
-    title: 'Doors',
+    title: 'First Team',
   },
   {
     img: '/images/team3.jpeg',
-    title: 'Coffee',
-  },
-  {
-    img: '/images/team2.jpeg',
-    title: 'Storage',
-  },
-  {
-    img: '/images/team3.jpeg',
-    title: 'Candle',
-  },
-  {
-    img: '/images/team2.jpeg',
-    title: 'Coffee table',
+    title: 'Books',
   },
 ];
