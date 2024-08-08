@@ -2,43 +2,80 @@
 
 import React, { useState } from "react";
 import Link from 'next/link'; 
-import { HoveredLink, Menu, MenuItem } from "../components/ui/navbar-menu";
+import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 import { cn } from "@/lib/utils";
 
-
 export function Navbar({ className }) {
-  const [active, setActive] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeMenu, setActiveMenu] = useState(null);
+
+  const toggleMenu = () => setIsOpen(!isOpen);
+
+  const handleMouseEnter = (menu) => {
+    setActiveMenu(menu);
+  };
+
+  const handleMouseLeave = () => {
+    setActiveMenu(null);
+  };
+
   return (
-    <div className={cn("fixed top-0 inset-x-0 w-full z-50 bg-teal", className)}> 
-      <Menu setActive={setActive} className="flex justify-center items-center ">
-        <div className="flex flex-grow justify-center space-x-10 ">
-          <img src="/images/logo.jpeg" alt="Logo" className="h-10" />
-          <MenuItem setActive={setActive} active={active} item="UEBL WOLVES" className="flex items-center" />
-          <Link href="/"> 
-            <MenuItem setActive={setActive} active={active} item="Home" />
-          </Link>
-          <Link href="/team">
-            <MenuItem setActive={setActive} active={active} item="Team">
-              <div className="flex flex-col space-y-4 text-sm">
-                <HoveredLink href="/team/2018">UEBL Wolves 2018</HoveredLink>
-                <HoveredLink href="/team/2022">UEBL Wolves 2022</HoveredLink>
-                <HoveredLink href="/team/2023">UEBL Wolves 2023</HoveredLink>
-                <HoveredLink href="/team/2024">UEBL Wolves 2024</HoveredLink>
-                <HoveredLink href="/team/all-star">UEBL All Star Game</HoveredLink>
-              </div>
-            </MenuItem>
-          </Link>
-          <MenuItem setActive={setActive} active={active} item="Shop" />
-          <MenuItem setActive={setActive} active={active} item="Donate" />
-          <MenuItem setActive={setActive} active={active} item="About/Info">
-            <div className="flex flex-col space-y-4 text-sm">
-              <HoveredLink href="/">Contact Us</HoveredLink>
-              <HoveredLink href="/">About Us</HoveredLink>
-            </div>
-          </MenuItem>
-          <MenuItem setActive={setActive} active={active} item="Cart" />
+    <div className={cn("fixed top-0 inset-x-0 w-full z-50 bg-teal", className)}>
+      <div className="flex justify-between items-center p-4">
+        <div className="flex items-center">
+          <img src="/images/logo.jpeg" alt="Logo" className="h-10 ml-2" />
+          <div className="text-white font-bold ml-4">UEBL WOLVES</div>
         </div>
-      </Menu>
+        <div className="hidden md:flex justify-center items-center flex-grow space-x-10">
+          <div className="relative group">
+          <Link href="/" className="text-white mr-10">Home</Link>
+            <Link href="/team" className="text-white" onMouseEnter={() => handleMouseEnter('team')} onMouseLeave={handleMouseLeave}>
+              Team
+            </Link>
+            {activeMenu === 'team' && (
+              <div className="absolute top-full mt-2 bg-white shadow-md left-1/2 transform -translate-x-1/2 group-hover:block">
+                <div className="flex flex-col p-2" onMouseEnter={() => handleMouseEnter('team')} onMouseLeave={handleMouseLeave}>
+                  <Link href="/team/2018" className="p-2 hover:bg-gray-100"> 2018 </Link>
+                  <Link href="/team/2022" className="p-2 hover:bg-gray-100"> 2022 </Link>
+                  <Link href="/team/2023" className="p-2 hover:bg-gray-100"> 2023 </Link>
+                  <Link href="/team/2024" className="p-2 hover:bg-gray-100"> 2024 </Link>
+                  <Link href="/team/all-star" className="p-2 hover:bg-gray-100">All Star </Link>
+                </div>
+              </div>
+            )}
+          </div>
+          <Link href="/shop" className="text-white">Shop</Link>
+          <Link href="/donate" className="text-white">Donate</Link>
+          <div className="relative group">
+            <Link href="/about" className="text-white" onMouseEnter={() => handleMouseEnter('about')} onMouseLeave={handleMouseLeave}>
+              About/Info
+            </Link>
+            {activeMenu === 'about' && (
+              <div className="absolute top-full mt-2 bg-white shadow-md left-1/2 transform -translate-x-1/2 group-hover:block">
+                <div className="flex flex-col p-2" onMouseEnter={() => handleMouseEnter('about')} onMouseLeave={handleMouseLeave}>
+                  <Link href="/contact" className="p-2 hover:bg-gray-100">Contact</Link>
+                  <Link href="/about" className="p-2 hover:bg-gray-100">About</Link>
+                </div>
+              </div>
+            )}
+          </div>
+          <Link href="/cart" className="text-white">Cart</Link>
+        </div>
+        <div className="md:hidden flex items-center">
+          <button onClick={toggleMenu} className="text-white">
+            {isOpen ? <AiOutlineClose size={24} /> : <AiOutlineMenu size={24} />}
+          </button>
+        </div>
+      </div>
+      {isOpen && (
+        <div className="md:hidden flex flex-col items-center space-y-4 p-4">
+          <Link href="/team" className="text-white">Team</Link>
+          <Link href="/shop" className="text-white">Shop</Link>
+          <Link href="/donate" className="text-white">Donate</Link>
+          <Link href="/about" className="text-white">About/Info</Link>
+          <Link href="/cart" className="text-white">Cart</Link>
+        </div>
+      )}
     </div>
   );
 }

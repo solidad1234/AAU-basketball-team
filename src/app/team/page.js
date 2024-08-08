@@ -9,8 +9,8 @@ export default function HeroParallaxDemo() {
         backgroundImage: "url('/images/gallery-background.jpeg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
-        backgroundAttachment: "fixed", // Optional: This makes the background fixed relative to the viewport
-        minHeight: "100vh", // Ensures the div covers at least the viewport height
+        backgroundAttachment: "fixed", 
+        minHeight: "100vh", 
       }}
     >
       <HeroParallax products={products} />
