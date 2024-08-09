@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Link from 'next/link'; 
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 import { cn } from "@/lib/utils";
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 export function Navbar({ className }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,7 +24,7 @@ export function Navbar({ className }) {
     <div className={cn("fixed top-0 inset-x-0 w-full z-50 bg-teal", className)}>
       <div className="flex justify-between items-center p-4">
         <div className="flex items-center">
-          <img src="/images/logo.jpeg" alt="Logo" className="h-10 ml-2" />
+          <img src="/images/logo.jpeg" alt="Logo" className="h-10 ml-4" />
           <div className="text-white font-bold ml-4">UEBL WOLVES</div>
         </div>
         <div className="hidden md:flex justify-center items-center flex-grow space-x-10">
@@ -59,7 +60,7 @@ export function Navbar({ className }) {
               </div>
             )}
           </div>
-          <Link href="/cart" className="text-white">Cart</Link>
+          <Link href="/cart" className="text-white"> <ShoppingCartIcon /> Cart</Link>
         </div>
         <div className="md:hidden flex items-center">
           <button onClick={toggleMenu} className="text-white">
