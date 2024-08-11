@@ -1,10 +1,17 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, Button, TextField, Typography, Checkbox, FormControlLabel, Link } from '@mui/material';
 import EmailIcon from '@mui/icons-material/Email';
 import InstagramIcon from '@mui/icons-material/Instagram';
 
 export default function DonatePage() {
+  const [amount, setAmount] = useState(''); 
+
+
+  const handleAmountClick = (value) => {
+    setAmount(value); 
+  };
+
   return (
     <Box sx={{ padding: '20px', maxWidth: '800px', margin: '0 auto', marginTop: '100px' }}>
       <Box sx={{ textAlign: 'center', marginBottom: '40px' }}>
@@ -17,10 +24,10 @@ export default function DonatePage() {
       </Box>
 
       <Box sx={{ textAlign: 'center', marginBottom: '40px' }}>
-        <Button variant="outlined" sx={{ margin: '10px' }}>$10</Button>
-        <Button variant="outlined" sx={{ margin: '10px' }}>$25</Button>
-        <Button variant="outlined" sx={{ margin: '10px' }}>$50</Button>
-        <Button variant="outlined" sx={{ margin: '10px' }}>$100</Button>
+        <Button variant="outlined" sx={{ margin: '10px' }} onClick={() => handleAmountClick('10')}>$10</Button>
+        <Button variant="outlined" sx={{ margin: '10px' }} onClick={() => handleAmountClick('25')}>$25</Button>
+        <Button variant="outlined" sx={{ margin: '10px' }} onClick={() => handleAmountClick('50')}>$50</Button>
+        <Button variant="outlined" sx={{ margin: '10px' }} onClick={() => handleAmountClick('100')}>$100</Button>
         <Box>
           <p> Or Donate a custom amount...</p>
         </Box>
@@ -28,6 +35,8 @@ export default function DonatePage() {
           label="Enter your amount"
           variant="outlined"
           fullWidth
+          value={amount} // Bind the input field value to the state
+          onChange={(e) => setAmount(e.target.value)} // Update the state when the input changes
           sx={{ margin: '20px 0' }}
         />
         <FormControlLabel control={<Checkbox />} label="Make this a monthly donation" />
