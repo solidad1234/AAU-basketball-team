@@ -77,6 +77,7 @@ export function Navbar({ className }) {
       </div>
       {isOpen && (
         <div className="md:hidden flex flex-col items-center space-y-4 p-4">
+          <Link href="/" className="text-white" onClick={handleMobileLinkClick}>Home</Link>
           <Link href="/team" className="text-white" onClick={handleMobileLinkClick}>Team</Link>
           <Link href="/shop" className="text-white" onClick={handleMobileLinkClick}>Shop</Link>
           <Link href="/donate" className="text-white" onClick={handleMobileLinkClick}>Donate</Link>
