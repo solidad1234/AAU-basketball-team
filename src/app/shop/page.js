@@ -1,170 +1,93 @@
-'use client';
-import React, { useState, useEffect } from 'react';
-import { useCart } from '../context/CartContext';
+"use client";
 
-const itemData = [
-    {
-      img: '/images/2024jersey1.jpeg',
-      title: 'First Team',
-      description: 'Our first team jersey',
-      price: '$50',
-      status: 'available',
-    },
-    {
-      img: '/images/2024jersey1.jpeg',
-      title: 'Books',
-      description: 'UEBL Wolves notebook',
-      price: '$15',
-      status: 'sold',
-    },
-    {
-        img: '/images/2024jersey1.jpeg',
-        title: 'First Team',
-        description: 'Our first team jersey',
-        price: '$50',
-        status: 'available',
-      },
-      {
-        img: '/images/2024jersey1.jpeg',
-        title: 'Books',
-        description: 'UEBL Wolves notebook',
-        price: '$15',
-        status: 'sold',
-      },
-      {
-        img: '/images/2024jersey1.jpeg',
-        title: 'First Team',
-        description: 'Our first team jersey',
-        price: '$50',
-        status: 'available',
-      },
-      {
-        img: '/images/2024jersey1.jpeg',
-        title: 'Books',
-        description: 'UEBL Wolves notebook',
-        price: '$15',
-        status: 'sold',
-      },
-      {
-        img: '/images/2024jersey1.jpeg',
-        title: 'First Team',
-        description: 'Our first team jersey',
-        price: '$50',
-        status: 'available',
-      },
-      {
-        img: '/images/2024jersey1.jpeg',
-        title: 'Books',
-        description: 'UEBL Wolves notebook',
-        price: '$15',
-        status: 'sold',
-      },
-      {
-        img: '/images/2024jersey1.jpeg',
-        title: 'First Team',
-        description: 'Our first team jersey',
-        price: '$50',
-        status: 'available',
-      },
-      {
-        img: '/images/2024jersey1.jpeg',
-        title: 'Books',
-        description: 'UEBL Wolves notebook',
-        price: '$15',
-        status: 'sold',
-      },
-      {
-        img: '/images/2024jersey1.jpeg',
-        title: 'First Team',
-        description: 'Our first team jersey',
-        price: '$50',
-        status: 'available',
-      },
-      {
-        img: '/images/2024jersey1.jpeg',
-        title: 'Books',
-        description: 'UEBL Wolves notebook',
-        price: '$15',
-        status: 'available',
-      },
-  ];
-  
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { Box, Typography, Button, TextField, Snackbar, Alert } from "@mui/material";
 
-export default function ShopPage() {
-  const { cartItems, addItem, removeItem } = useCart();
-  const [popup, setPopup] = useState({ visible: false, message: '' });
+export default function ShopComingSoon() {
+  const [email, setEmail] = useState("");
+  const [open, setOpen] = useState(false);
 
-  useEffect(() => {
-    let timeout;
-    if (popup.visible) {
-      timeout = setTimeout(() => {
-        setPopup({ ...popup, visible: false });
-      }, 3000); 
-    }
-
-    return () => clearTimeout(timeout); 
-  }, [popup.visible]);
-
-  const handleToggleCart = (item) => {
-    if (cartItems.some(cartItem => cartItem.title === item.title)) {
-      // Remove item from cart
-      removeItem(item.title);
-      setPopup({ visible: true, message: `${item.title} removed from cart` });
-    } else {
-      // Add item to cart
-      addItem(item);
-      setPopup({ visible: true, message: `${item.title} added to cart` });
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (email) {
+      setOpen(true);
+      setEmail("");
     }
   };
 
-  const closePopup = () => {
-    setPopup({ ...popup, visible: false });
+  const handleClose = () => {
+    setOpen(false);
   };
 
   return (
-    <div className="flex flex-col items-center mt-16">
-      <div className="flex flex-wrap justify-center w-full">
-        {itemData.map((item, index) => (
-          <div
-            key={index}
-            className="relative p-4 m-4 border rounded-lg shadow-md w-64"
-          >
-            <img src={item.img} alt={item.title} className="w-full h-40 object-cover rounded-md" />
-            <div className="mt-2 text-lg font-semibold">{item.title}</div>
-            <div className="text-sm text-gray-500">{item.description}</div>
-            <div className="text-lg font-bold mt-1">{item.price}</div>
+    <Box
+      sx={{
+        height: "100vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
+        backgroundColor: "#1a202c",
+        color: "white",
+        textAlign: "center",
+        padding: "20px",
+      }}
+    >
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeInOut" }}
+      >
+        <Typography variant="h2" component="h1" gutterBottom>
+          Shop Coming Soon
+        </Typography>
+        <Typography variant="h6" component="p" gutterBottom>
+          We're working hard to bring you an exciting shopping experience. Stay tuned!
+        </Typography>
+      </motion.div>
 
-            {/* Status Indicator */}
-            <div
-              className={`absolute top-2 right-2 px-2 py-1 rounded-full text-sm text-white ${
-                item.status === 'available' ? 'bg-green-500' : 'bg-red-500'
-              }`}
-            >
-              {item.status}
-            </div>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeInOut" }}
+        style={{ marginTop: "40px", display:"flex", flexDirection: "column" }}
+      >
+        <TextField
+          type="email"
+          label="Enter your email"
+          variant="outlined"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          sx={{
+            backgroundColor: "white",
+            borderRadius: "8px",
+            padding: "10px",
+            color: "black",
+            marginBottom: "20px",
+          }}
+          required
+        />
+        <Button
+          variant="contained"
+          color="primary"
+          sx={{ padding: "10px 30px", borderRadius: "30px" }}
+          onClick={handleSubmit}
+        >
+          Notify Me
+        </Button>
+      </motion.div>
 
-            {/* Add/Remove to Cart Button */}
-            <button
-              onClick={() => handleToggleCart(item)}
-              className={`mt-4 px-4 py-2 rounded-md w-full ${cartItems.some(cartItem => cartItem.title === item.title) ? 'bg-red-500 hover:bg-red-600' : 'bg-blue-500 hover:bg-blue-600'} text-white`}
-              disabled={item.status === 'sold'}
-            >
-              {cartItems.some(cartItem => cartItem.title === item.title) ? 'Remove from Cart' : item.status === 'available' ? 'Add to Cart' : 'Sold Out'}
-            </button>
-          </div>
-        ))}
-      </div>
-
-      {/* Popup Notification */}
-      {popup.visible && (
-        <div className="fixed top-4 right-4 bg-green-400 text-white p-4 rounded-lg shadow-lg mt-16">
-          <p>{popup.message}</p>
-          <button onClick={closePopup} className="mt-2 px-4 py-2 bg-white-600 rounded text-white hover:bg-gray-700">
-            Close
-          </button>
-        </div>
-      )}
-    </div>
+      <Snackbar
+        open={open}
+        autoHideDuration={3000}
+        onClose={handleClose}
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+      >
+        <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+          Thank you! We will notify you.
+        </Alert>
+      </Snackbar>
+    </Box>
   );
 }
-

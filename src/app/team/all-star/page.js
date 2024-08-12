@@ -12,7 +12,7 @@ export default function TitlebarBelowMasonryImageList() {
   const [selectedItemIndex, setSelectedItemIndex] = React.useState(null);
   const [imageStates, setImageStates] = React.useState(itemData.map(item => ({
     ...item,
-    imageUrl: item.img,
+    mediaUrl: item.img,
     description: item.title,
   })));
 
@@ -29,7 +29,7 @@ export default function TitlebarBelowMasonryImageList() {
         reader.onloadend = () => {
           setImageStates(prevStates => {
             const newStates = [...prevStates];
-            newStates[selectedItemIndex].imageUrl = reader.result;
+            newStates[selectedItemIndex].mediaUrl = reader.result;
             return newStates;
           });
           setMode('view');
@@ -52,7 +52,7 @@ export default function TitlebarBelowMasonryImageList() {
   return (
     <Box sx={{ width: '80vw', maxWidth: '1200px', margin: '0 auto', overflowY: 'scroll', marginTop: '100px' }}>
       <div style={{ textAlign: 'center', marginBottom: '20px' }}>
-        <h1>All Star Wolves Team</h1>
+        <h1>2024 Wolves Team</h1>
       </div>
       {selectedItemIndex !== null && (
         <Button onClick={() => setMode('view')} variant="contained" color="secondary" sx={{ marginBottom: '16px' }}>
@@ -80,14 +80,26 @@ export default function TitlebarBelowMasonryImageList() {
       )}
       <ImageList variant="masonry" cols={3} gap={8}>
         {imageStates.map((item, index) => (
-          <ImageListItem key={item.img} onClick={() => handleModeToggle(index)}>
-            <img
-              srcSet={`${item.imageUrl}?w=248&fit=crop&auto=format&dpr=2 2x`}
-              src={item.imageUrl}
-              alt={item.description}
-              loading="lazy"
-              style={{ cursor: 'pointer' }}
-            />
+          <ImageListItem key={item.mediaUrl} onClick={() => handleModeToggle(index)}>
+            {item.mediaUrl.endsWith('.mp4') || item.mediaUrl.endsWith('.webm') || item.mediaUrl.endsWith('.ogg') ? (
+              <video
+                controls
+                style={{ cursor: 'pointer', maxHeight: '400px', width: '100%', objectFit: 'cover' }}
+              >
+                <source src={item.mediaUrl} type="video/mp4" />
+                <source src={item.mediaUrl.replace('.mp4', '.webm')} type="video/webm" />
+                <source src={item.mediaUrl.replace('.mp4', '.ogg')} type="video/ogg" />
+                Your browser does not support the video tag.
+              </video>
+            ) : (
+              <img
+                srcSet={`${item.mediaUrl}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                src={item.mediaUrl}
+                alt={item.description}
+                loading="lazy"
+                style={{ cursor: 'pointer' }}
+              />
+            )}
             <ImageListItemBar
               position="below"
               title={item.description}
@@ -102,51 +114,36 @@ export default function TitlebarBelowMasonryImageList() {
 
 const itemData = [
   {
-    img: '/images/team2.jpeg',
+    img: '/videos/all-star/vid.mp4',
     title: 'First Team',
   },
   {
-    img: '/images/team3.jpeg',
-    title: 'Books',
+    img: '/videos/all-star/vid1.mp4',
+    title: 'Team',
   },
   {
-    img: '/images/team2.jpeg',
-    title: 'Sink',
+    img: '/videos/all-star/vid2.mp4',
+    title: 'Team',
   },
   {
-    img: '/images/team3.jpeg',
-    title: 'Kitchen',
+    img: '/videos/all-star/vid3.mp4',
+    title: 'Team',
   },
   {
-    img: '/images/team2.jpeg',
-    title: 'Blinds',
+    img: '/videos/all-star/vid4.mp4',
+    title: 'Team',
   },
   {
-    img: '/images/team2.jpeg',
-    title: 'Chairs',
+    img: '/videos/all-star/vid5.mp4',
+    title: 'Team',
   },
   {
-    img: '/images/team3.jpeg',
-    title: 'Laptop',
+    img: '/videos/all-star/vid6.mp4',
+    title: 'Team',
   },
   {
-    img: '/images/team2.jpeg',
-    title: 'Doors',
+    img: '/videos/all-star/vid7.mp4',
+    title: 'Team',
   },
-  {
-    img: '/images/team3.jpeg',
-    title: 'Coffee',
-  },
-  {
-    img: '/images/team2.jpeg',
-    title: 'Storage',
-  },
-  {
-    img: '/images/team3.jpeg',
-    title: 'Candle',
-  },
-  {
-    img: '/images/team2.jpeg',
-    title: 'Coffee table',
-  },
+  
 ];

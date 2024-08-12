@@ -22,7 +22,7 @@ function CalendarDemo() {
 function AuroraBackgroundDemo() {
   return (
     <div
-      className="relative w-full h-screen bg-cover bg-center mt-16 bg-gray flex flex-col lg:flex-row justify-between items-center"  
+      className="relative w-full h-screen bg-cover bg-center mt-16 bg-gray flex flex-col justify-center items-center"  
       style={{ backgroundImage: "url('/images/background.jpeg')" }}
     >
       <motion.div
@@ -33,7 +33,7 @@ function AuroraBackgroundDemo() {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="relative flex flex-col gap-4 items-start justify-center px-4 py-10 lg:w-3/4"
+        className="relative flex flex-col items-center justify-center px-4 py-10 w-full lg:w-3/4"
       >
         <div className="text-3xl md:text-7xl font-bold dark:text-white text-center">
           {/* Your heading */}
@@ -47,7 +47,7 @@ function AuroraBackgroundDemo() {
         </div>
       </motion.div>
       
-      <div className="w-full lg:w-1/2 flex flex-col lg:flex-row gap-4 px-4 lg:px-10">
+      <div className="w-full lg:w-3/4 flex flex-col lg:flex-row justify-center gap-8 px-4 lg:px-10 mt-16 lg:mt-0">
         <motion.div
           initial={{ opacity: 0.0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -65,7 +65,7 @@ function AuroraBackgroundDemo() {
             muted
             loop
             controls
-            style={{ width: '100%', height: 'auto' }}
+            style={{ width: '100%', height: '50vh', objectFit: 'cover' }}
           >
             Your browser does not support the video tag.
           </video>
@@ -79,38 +79,16 @@ function AuroraBackgroundDemo() {
             duration: 0.8,
             ease: "easeInOut",
           }}
-          className="w-full lg:w-1/2 mt-4 lg:mt-0"
+          className="w-full lg:w-1/2"
         >
           <video
             className="rounded-md border"
-            src="/videos/2024vid3.mp4" 
+            src="/videos/2024/2024vid3.mp4" 
             autoPlay
             muted
             loop
             controls
-            style={{ width: '100%', height: 'auto' }}
-          >
-            Your browser does not support the video tag.
-          </video>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0.0, x: 40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{
-            delay: 0.3,
-            duration: 0.8,
-            ease: "easeInOut",
-          }}
-          className="w-full lg:w-1/2 mt-4 lg:mt-0"
-        >
-          <video
-            className="rounded-md border"
-            src="/videos/2024vid3.mp4" 
-            autoPlay
-            muted
-            loop
-            controls
-            style={{ width: '100%', height: 'auto' }}
+            style={{ width: '100%', height: '50vh', objectFit: 'cover' }}
           >
             Your browser does not support the video tag.
           </video>
@@ -125,7 +103,7 @@ function AuroraBackgroundDemo() {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="w-full lg:w-1/4 pr-10 mr-10 mt-4 lg:mt-0"
+        className="w-full lg:w-1/4 mt-10 flex justify-center items-center"
       >
         <CalendarDemo />
       </motion.div>

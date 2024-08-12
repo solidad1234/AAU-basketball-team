@@ -122,11 +122,11 @@ const itemData = [
     title: 'Team',
   },
   {
-    img: '/videos/2024vid5.mp4',
+    img: '/videos/2024/2024vid5.mp4',
     title: 'Team',
   },
   {
-    img: '/videos/2024vid4.mp4',
+    img: '/videos/2024/2024vid4.mp4',
     title: 'Team',
   },
   {
@@ -134,7 +134,7 @@ const itemData = [
     title: 'Team',
   },
   {
-    img: '/videos/2024vid3.mp4',
+    img: '/videos/2024/2024vid3.mp4',
     title: 'Team',
   },
   {
@@ -158,20 +158,20 @@ const itemData = [
     title: 'Team',
   },
   {
-    img: '/videos/2024vid2.mp4',
+    img: '/videos/2024/2024vid2.mp4',
     title: 'Team',
   },
   {
-    img: '/videos/2024vid1.mp4',
+    img: '/videos/2024/2024vid1.mp4',
     title: 'Team',
   },
   {
-    img: '/videos/2024vid6.mp4',
+    img: '/videos/2024/2024vid6.mp4',
     title: ' Video',
   },
   ,
   {
-    img: '/videos/2024vid7.mp4',
+    img: '/videos/2024/2024vid7.mp4',
     title: ' Video',
   },
   
