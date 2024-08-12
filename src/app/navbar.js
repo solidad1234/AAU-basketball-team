@@ -51,6 +51,7 @@ export function Navbar({ className }) {
                   <Link href="/team/2023" className="p-2 hover:bg-gray-100"> 2023 </Link>
                   <Link href="/team/2024" className="p-2 hover:bg-gray-100"> 2024 </Link>
                   <Link href="/team/all-star" className="p-2 hover:bg-gray-100">All Star </Link>
+                  <Link href="/team/camp" className="p-2 hover:bg-gray-100">Camp </Link>
                 </div>
               </div>
             )}
