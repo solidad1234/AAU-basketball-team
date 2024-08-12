@@ -41,7 +41,7 @@ export function Navbar({ className }) {
           <div className="relative group">
             <Link href="/" className="text-white mr-10">Home</Link>
             <Link href="/team" className="text-white" onMouseEnter={() => handleMouseEnter('team')} onMouseLeave={handleMouseLeave}>
-              Team
+              Gallery
             </Link>
             {activeMenu === 'team' && (
               <div className="absolute top-full mt-2 bg-white shadow-md left-1/2 transform -translate-x-1/2 group-hover:block" onMouseEnter={() => handleMouseEnter('team')} onMouseLeave={handleMouseLeave}>
