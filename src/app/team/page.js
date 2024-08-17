@@ -64,10 +64,14 @@ export const products = [
     link: "/team/all-star",
     thumbnail: "/images/all-star.jpeg",  
   },
-  ,
   {
     title: "UEBL Basketball Camp",
     link: "/team/camp",
     thumbnail: "/images/camp/img.jpeg",  
+  },
+  {
+    title: "UEBL Classic",
+    link: "/team/camp",
+    thumbnail: "/images/classic.jpeg",  
   },
 ];

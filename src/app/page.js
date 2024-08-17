@@ -1,12 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useRef, useState } from "react";
 import { Calendar } from "../components/ui/calendar";
 import { Navbar } from "./navbar";
 
 function CalendarDemo() {
-  const [date, setDate] = React.useState(null);
+  const [date, setDate] = useState(null);
 
   return (
     <Calendar
@@ -19,13 +19,24 @@ function CalendarDemo() {
 }
 
 function AuroraBackgroundDemo() {
+  const videoRef = useRef(null);
+  const [isMuted, setIsMuted] = useState(true);
+
+  const handleUnmuteClick = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted;
+      setIsMuted(!isMuted);
+    }
+  };
+
   return (
     <div className="relative w-full h-screen bg-cover bg-center mt-16 flex flex-col justify-center items-center">
       <video
+        ref={videoRef}
         className="absolute top-0 left-0 w-full h-full object-cover"
         src="/videos/homevid.mp4"
         autoPlay
-        muted
+        muted={isMuted}
         loop
       ></video>
       <div className="absolute inset-0 bg-black opacity-30"></div>
@@ -64,13 +75,20 @@ function AuroraBackgroundDemo() {
       >
         <CalendarDemo />
       </motion.div>
+
+      <button
+        onClick={handleUnmuteClick}
+        className="absolute bottom-10 bg-white text-black px-4 py-2 rounded-full"
+      >
+        {isMuted ? "Click to Unmute" : "Click to Mute"}
+      </button>
     </div>
   );
 }
 
 export default function HomePage() {
   return (
-    <div className="bg-teal"> 
+    <div className="bg-teal">
       <Navbar />
       <AuroraBackgroundDemo />
     </div>
