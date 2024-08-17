@@ -33,13 +33,15 @@ export function Navbar({ className }) {
   return (
     <div className={cn("fixed top-0 inset-x-0 w-full z-50 bg-teal", className)}>
       <div className="flex justify-between items-center p-4">
-        <div className="flex items-center">
-          <img src="/images/logo.jpeg" alt="Logo" className="h-10 ml-4" />
-          <div className="text-white font-bold ml-4">UEBL WOLVES</div>
-        </div>
+        <Link href="/team">
+          <div className="flex items-center">
+            <img src="/images/logo.jpeg" alt="Logo" className="h-10 ml-4 cursor-pointer" />
+            <div className="text-white font-bold ml-4 cursor-pointer">UEBL WOLVES</div>
+          </div>
+        </Link>
         <div className="hidden md:flex justify-center items-center flex-grow space-x-10">
+          <Link href="/" className="text-white mr-10">Home</Link>
           <div className="relative group">
-            <Link href="/" className="text-white mr-10">Home</Link>
             <Link href="/team" className="text-white" onMouseEnter={() => handleMouseEnter('team')} onMouseLeave={handleMouseLeave}>
               Gallery
             </Link>
@@ -79,7 +81,7 @@ export function Navbar({ className }) {
       {isOpen && (
         <div className="md:hidden flex flex-col items-center space-y-4 p-4">
           <Link href="/" className="text-white" onClick={handleMobileLinkClick}>Home</Link>
-          <Link href="/team" className="text-white" onClick={handleMobileLinkClick}>Team</Link>
+          <Link href="/team" className="text-white" onClick={handleMobileLinkClick}>Gallery</Link>
           <Link href="/shop" className="text-white" onClick={handleMobileLinkClick}>Shop</Link>
           <Link href="/donate" className="text-white" onClick={handleMobileLinkClick}>Donate</Link>
           <Link href="/about" className="text-white" onClick={handleMobileLinkClick}>About/Info</Link>
