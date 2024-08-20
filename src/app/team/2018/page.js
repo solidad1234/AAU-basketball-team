@@ -12,7 +12,7 @@ export default function TitlebarBelowMasonryImageList() {
   const [selectedItemIndex, setSelectedItemIndex] = React.useState(null);
   const [imageStates, setImageStates] = React.useState(itemData.map(item => ({
     ...item,
-    imageUrl: item.img,
+    mediaUrl: item.img,
     description: item.title,
   })));
 
@@ -29,7 +29,7 @@ export default function TitlebarBelowMasonryImageList() {
         reader.onloadend = () => {
           setImageStates(prevStates => {
             const newStates = [...prevStates];
-            newStates[selectedItemIndex].imageUrl = reader.result;
+            newStates[selectedItemIndex].mediaUrl = reader.result;
             return newStates;
           });
           setMode('view');
@@ -80,14 +80,26 @@ export default function TitlebarBelowMasonryImageList() {
       )}
       <ImageList variant="masonry" cols={3} gap={8}>
         {imageStates.map((item, index) => (
-          <ImageListItem key={item.img} onClick={() => handleModeToggle(index)}>
-            <img
-              srcSet={`${item.imageUrl}?w=248&fit=crop&auto=format&dpr=2 2x`}
-              src={item.imageUrl}
-              alt={item.description}
-              loading="lazy"
-              style={{ cursor: 'pointer' }}
-            />
+          <ImageListItem key={item.mediaUrl} onClick={() => handleModeToggle(index)}>
+            {item.mediaUrl.endsWith('.mp4') || item.mediaUrl.endsWith('.webm') || item.mediaUrl.endsWith('.ogg') ? (
+              <video
+                controls
+                style={{ cursor: 'pointer', maxHeight: '400px', width: '100%', objectFit: 'cover' }}
+              >
+                <source src={item.mediaUrl} type="video/mp4" />
+                <source src={item.mediaUrl.replace('.mp4', '.webm')} type="video/webm" />
+                <source src={item.mediaUrl.replace('.mp4', '.ogg')} type="video/ogg" />
+                Your browser does not support the video tag.
+              </video>
+            ) : (
+              <img
+                srcSet={`${item.mediaUrl}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                src={item.mediaUrl}
+                alt={item.description}
+                loading="lazy"
+                style={{ cursor: 'pointer' }}
+              />
+            )}
             <ImageListItemBar
               position="below"
               title={item.description}
@@ -102,51 +114,40 @@ export default function TitlebarBelowMasonryImageList() {
 
 const itemData = [
   {
-    img: '/images/team2.jpeg',
-    title: 'First Team',
+    img: '/images/2018/img1.jpeg',
+    title: '',
   },
   {
-    img: '/images/team3.jpeg',
-    title: 'Books',
+    img: '/videos/2018/vid2.mp4',
+    title: '',
   },
   {
-    img: '/images/team2.jpeg',
-    title: 'Sink',
+    img: '/videos/2018/vid3.mp4',
+    title: '',
   },
   {
-    img: '/images/team3.jpeg',
-    title: 'Kitchen',
+    img: '/images/2018/img2.jpeg',
+    title: '',
   },
   {
-    img: '/images/team2.jpeg',
-    title: 'Blinds',
+    img: '/images/2018/img3.jpeg',
+    title: '',
   },
   {
-    img: '/images/team2.jpeg',
-    title: 'Chairs',
+    img: '/videos/2018/vid1.mp4',
+    title: '',
   },
   {
-    img: '/images/team3.jpeg',
-    title: 'Laptop',
+    img: '/images/2018/img4.jpeg',
+    title: '',
   },
   {
-    img: '/images/team2.jpeg',
-    title: 'Doors',
+    img: '/images/2018/img5.jpeg',
+    title: '',
   },
+ 
   {
-    img: '/images/team3.jpeg',
-    title: 'Coffee',
-  },
-  {
-    img: '/images/team2.jpeg',
-    title: 'Storage',
-  },
-  {
-    img: '/images/team3.jpeg',
-    title: 'Candle',
-  },
-  {
-    img: '/images/team2.jpeg',
-    title: 'Coffee table',
-  },
+    img: '/videos/2018/vid4.mp4',
+    title: '',
+  }
 ];

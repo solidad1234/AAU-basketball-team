@@ -65,7 +65,7 @@ function AuroraBackgroundDemo() {
             muted
             loop
             controls
-            style={{ width: '100%', height: '50vh', objectFit: 'cover' }}
+            style={{ width: '75%', height: '35vh', objectFit: 'cover' }}
           >
             Your browser does not support the video tag.
           </video>
@@ -88,7 +88,7 @@ function AuroraBackgroundDemo() {
             muted
             loop
             controls
-            style={{ width: '100%', height: '50vh', objectFit: 'cover' }}
+            style={{ width: '75%', height: '35vh', objectFit: 'cover' }}
           >
             Your browser does not support the video tag.
           </video>

@@ -12,7 +12,7 @@ export default function TitlebarBelowMasonryImageList() {
   const [selectedItemIndex, setSelectedItemIndex] = React.useState(null);
   const [imageStates, setImageStates] = React.useState(itemData.map(item => ({
     ...item,
-    imageUrl: item.img,
+    mediaUrl: item.img,
     description: item.title,
   })));
 
@@ -29,7 +29,7 @@ export default function TitlebarBelowMasonryImageList() {
         reader.onloadend = () => {
           setImageStates(prevStates => {
             const newStates = [...prevStates];
-            newStates[selectedItemIndex].imageUrl = reader.result;
+            newStates[selectedItemIndex].mediaUrl = reader.result;
             return newStates;
           });
           setMode('view');
@@ -80,14 +80,26 @@ export default function TitlebarBelowMasonryImageList() {
       )}
       <ImageList variant="masonry" cols={3} gap={8}>
         {imageStates.map((item, index) => (
-          <ImageListItem key={item.img} onClick={() => handleModeToggle(index)}>
-            <img
-              srcSet={`${item.imageUrl}?w=248&fit=crop&auto=format&dpr=2 2x`}
-              src={item.imageUrl}
-              alt={item.description}
-              loading="lazy"
-              style={{ cursor: 'pointer' }}
-            />
+          <ImageListItem key={item.mediaUrl} onClick={() => handleModeToggle(index)}>
+            {item.mediaUrl.endsWith('.mp4') || item.mediaUrl.endsWith('.webm') || item.mediaUrl.endsWith('.ogg') ? (
+              <video
+                controls
+                style={{ cursor: 'pointer', maxHeight: '400px', width: '100%', objectFit: 'cover' }}
+              >
+                <source src={item.mediaUrl} type="video/mp4" />
+                <source src={item.mediaUrl.replace('.mp4', '.webm')} type="video/webm" />
+                <source src={item.mediaUrl.replace('.mp4', '.ogg')} type="video/ogg" />
+                Your browser does not support the video tag.
+              </video>
+            ) : (
+              <img
+                srcSet={`${item.mediaUrl}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                src={item.mediaUrl}
+                alt={item.description}
+                loading="lazy"
+                style={{ cursor: 'pointer' }}
+              />
+            )}
             <ImageListItemBar
               position="below"
               title={item.description}
@@ -100,53 +112,178 @@ export default function TitlebarBelowMasonryImageList() {
   );
 }
 
+
 const itemData = [
   {
-    img: '/images/team2.jpeg',
-    title: 'First Team',
+    img: '/images/2022/img1.jpeg',
+    title: '',
   },
   {
-    img: '/images/team3.jpeg',
-    title: 'Books',
+    img: '/images/2022/img2.jpeg',
+    title: '',
   },
   {
-    img: '/images/team2.jpeg',
-    title: 'Sink',
+    img: '/images/2022/img3.jpeg',
+    title: '',
   },
   {
-    img: '/images/team3.jpeg',
-    title: 'Kitchen',
+    img: '/images/2022/img4.jpeg',
+    title: '',
   },
   {
-    img: '/images/team2.jpeg',
-    title: 'Blinds',
+    img: '/images/2022/img5.jpeg',
+    title: '',
   },
   {
-    img: '/images/team2.jpeg',
-    title: 'Chairs',
+    img: '/images/2022/img6.jpeg',
+    title: '',
   },
   {
-    img: '/images/team3.jpeg',
-    title: 'Laptop',
+    img: '/images/2022/img7.jpeg',
+    title: '',
   },
   {
-    img: '/images/team2.jpeg',
-    title: 'Doors',
+    img: '/images/2022/img8.jpeg',
+    title: '',
   },
   {
-    img: '/images/team3.jpeg',
-    title: 'Coffee',
+    img: '/images/2022/img9.jpeg',
+    title: '',
   },
   {
-    img: '/images/team2.jpeg',
-    title: 'Storage',
+    img: '/images/2022/img10.jpeg',
+    title: '',
   },
   {
-    img: '/images/team3.jpeg',
-    title: 'Candle',
+    img: '/images/2022/img11.jpeg',
+    title: '',
   },
   {
-    img: '/images/team2.jpeg',
-    title: 'Coffee table',
+    img: '/images/2022/img12.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/2022/img13.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/2022/img14.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/2022/img15.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/2022/img16.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/2022/img17.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/2022/img18.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/2022/img19.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/2022/img20.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/2022/img23.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/2022/img24.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/2022/img25.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/2022/img26.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/2022/img27.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/2022/img28.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/2022/img29.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/2022/img30.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/2022/img31.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/2022/img32.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/2022/img33.jpeg',
+    title: '',
+  },
+  {
+    img: '/videos/2022/vid1.mp4',
+    title: '',
+  },
+  {
+    img: '/videos/2022/vid2.mp4',
+    title: '',
+  },
+  {
+    img: '/videos/2022/vid3.mp4',
+    title: '',
+  },
+  {
+    img: '/videos/2022/vid4.mp4',
+    title: '',
+  },
+  {
+    img: '/videos/2022/vid5.mp4',
+    title: '',
+  },
+  {
+    img: '/videos/2022/vid6.mp4',
+    title: '',
+  },
+  {
+    img: '/videos/2022/vid7.mp4',
+    title: '',
+  },
+  {
+    img: '/videos/2022/vid8.mp4',
+    title: '',
+  },
+  {
+    img: '/videos/2022/vid9.mp4',
+    title: '',
+  },
+  {
+    img: '/videos/2022/vid10.mp4',
+    title: '',
+  },
+  {
+    img: '/videos/2022/vid11.mp4',
+    title: '',
+  },
+  {
+    img: '/videos/2022/vid12.mp4',
+    title: '',
   },
 ];

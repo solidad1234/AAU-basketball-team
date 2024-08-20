@@ -52,7 +52,7 @@ export default function TitlebarBelowMasonryImageList() {
   return (
     <Box sx={{ width: '80vw', maxWidth: '1200px', margin: '0 auto', overflowY: 'scroll', marginTop: '100px' }}>
       <div style={{ textAlign: 'center', marginBottom: '20px' }}>
-        <h1>2024 Wolves Team</h1>
+        <h1>All Star Wolves Team</h1>
       </div>
       {selectedItemIndex !== null && (
         <Button onClick={() => setMode('view')} variant="contained" color="secondary" sx={{ marginBottom: '16px' }}>
@@ -112,38 +112,236 @@ export default function TitlebarBelowMasonryImageList() {
   );
 }
 
+
 const itemData = [
   {
-    img: '/videos/all-star/vid.mp4',
-    title: 'First Team',
+    img: '/images/all-star/img1.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/all-star/img2.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/all-star/img3.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/all-star/img4.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/all-star/img5.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/all-star/img6.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/all-star/img7.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/all-star/img8.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/all-star/img9.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/all-star/img10.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/all-star/img11.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/all-star/img12.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/all-star/img13.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/all-star/img14.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/all-star/img15.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/all-star/img16.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/all-star/img17.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/all-star/img18.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/all-star/img19.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/all-star/img20.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/all-star/img23.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/all-star/img24.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/all-star/img25.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/all-star/img26.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/all-star/img27.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/all-star/img28.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/all-star/img29.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/all-star/img30.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/all-star/img31.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/all-star/img32.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/all-star/img33.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/all-star/img34.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/all-star/img35.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/all-star/img36.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/all-star/img37.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/all-star/img38.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/all-star/img39.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/all-star/img40.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/all-star/img41.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/all-star/img42.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/all-star/img43.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/all-star/img44.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/all-star/img45.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/all-star/img46.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/all-star/img47.jpeg',
+    title: '',
+  },
+  {
+    img: '/videos/all-star/vid9.mp4',
+    title: '',
+  },
+  {
+    img: '/videos/all-star/vid10.mp4',
+    title: '',
+  },
+  
+  {
+    img: '/images/all-star/img48.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/all-star/img49.jpeg',
+    title: '',
   },
   {
     img: '/videos/all-star/vid1.mp4',
-    title: 'Team',
+    title: '',
   },
   {
     img: '/videos/all-star/vid2.mp4',
-    title: 'Team',
+    title: '',
   },
   {
     img: '/videos/all-star/vid3.mp4',
-    title: 'Team',
+    title: '',
   },
   {
     img: '/videos/all-star/vid4.mp4',
-    title: 'Team',
+    title: '',
   },
   {
     img: '/videos/all-star/vid5.mp4',
-    title: 'Team',
+    title: '',
   },
   {
     img: '/videos/all-star/vid6.mp4',
-    title: 'Team',
+    title: '',
   },
   {
     img: '/videos/all-star/vid7.mp4',
-    title: 'Team',
+    title: '',
+  },
+  {
+    img: '/videos/all-star/vid8.mp4',
+    title: '',
   },
   
 ];
