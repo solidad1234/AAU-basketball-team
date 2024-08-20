@@ -65,5 +65,7 @@
   }
   body {
     @apply bg-background text-foreground;
+    cursor: url('../../public/images/main-logo1.png'), auto !important;
   }
 }
+

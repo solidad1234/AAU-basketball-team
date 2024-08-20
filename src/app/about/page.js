@@ -67,6 +67,19 @@ export default function AboutPage() {
             </a>
           </Typography>
           <Typography variant="body2" component="p" sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: '10px' }}>
+            <EmailIcon sx={{ marginRight: '8px' }} /> 
+            <a href="mailto:ueblwolvesmoosa@gmail.com" style={{ color: '#3f51b5', textDecoration: 'none', fontWeight: 'bold' }}>
+            ueblwolvesmoosa@gmail.com
+            </a>
+          </Typography>
+          <Typography variant="body2" component="p" sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: '10px' }}>
+            <EmailIcon sx={{ marginRight: '8px' }} /> 
+            <a href="mailto:ueblwolveschris@gmail.com" style={{ color: '#3f51b5', textDecoration: 'none', fontWeight: 'bold' }}>
+            ueblwolveschris@gmail.com
+            </a>
+          </Typography>
+          
+          <Typography variant="body2" component="p" sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: '10px' }}>
             <a href="https://www.tiktok.com/@uebl_wolves?_t=8oja57UA6Cl&_r=1" style={{ color: '#3f51b5', textDecoration: 'none', fontWeight: 'bold' }}>
               Tiktok
             </a>
