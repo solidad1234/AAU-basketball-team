@@ -56,7 +56,7 @@ function AuroraBackgroundDemo() {
             duration: 0.8,
             ease: "easeInOut",
           }}
-          className="w-full lg:w-1/2"
+          className="w-full lg:w-1/2 flex justify-center items-center"
         >
           <video
             className="rounded-md border"
@@ -65,7 +65,7 @@ function AuroraBackgroundDemo() {
             muted
             loop
             controls
-            style={{ width: '75%', height: '35vh', objectFit: 'cover' }}
+            style={{ width: '100%', height: '25vh', objectFit: 'cover' }} // Center and reduce height
           >
             Your browser does not support the video tag.
           </video>
@@ -79,7 +79,7 @@ function AuroraBackgroundDemo() {
             duration: 0.8,
             ease: "easeInOut",
           }}
-          className="w-full lg:w-1/2"
+          className="w-full lg:w-1/2 hidden lg:block"  // Hide on mobile
         >
           <video
             className="rounded-md border"
