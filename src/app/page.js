@@ -59,13 +59,12 @@ function AuroraBackgroundDemo() {
           className="w-full lg:w-1/2 flex justify-center items-center"
         >
           <video
-            className="rounded-md border"
+            className="rounded-md border video-style"
             src="/videos/homevid.mp4" 
             autoPlay
             muted
             loop
             controls
-            style={{ width: '100%', height: '25vh', objectFit: 'cover' }} // Center and reduce height
           >
             Your browser does not support the video tag.
           </video>
