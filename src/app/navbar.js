@@ -33,7 +33,7 @@ export function Navbar({ className }) {
   return (
     <div className={cn("fixed top-0 inset-x-0 w-full z-50 bg-teal", className)}>
       <div className="flex justify-between items-center p-4">
-        <Link href="/team">
+        <Link href="/members">
           <div className="flex items-center">
             <img src="/images/logo.jpeg" alt="Logo" className="h-10 ml-4 cursor-pointer" />
             <div className="text-white font-bold ml-4 cursor-pointer">UEBL WOLVES</div>
