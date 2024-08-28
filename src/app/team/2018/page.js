@@ -51,24 +51,24 @@ export default function TitlebarBelowMasonryImageList() {
 
   return (
     <Box
-      style ={{
+      sx ={{
         width: '80vw',
         maxWidth: '1200px',
         margin: '0 auto',
         overflowY: 'scroll',
         marginTop: '100px',
-        backgroundImage: 'url(/images/gallery-background.jpeg)', // Set your background image here
-        backgroundSize: 'cover', // Adjust how the background image is displayed
-        backgroundPosition: 'center', // Center the background image
-        backgroundRepeat: 'no-repeat', // Prevent the background from repeating
-        minHeight: '100vh', // Ensure the background covers the entire viewport height
-        padding: '20px', // Optional: Add padding if needed
+        backgroundImage: 'url(/images/gallery-background.jpeg)',
+        backgroundSize: 'cover', 
+        backgroundPosition: 'center', 
+        backgroundRepeat: 'no-repeat', 
+        minHeight: '100vh', 
+        padding: '20px', 
       }}
     >
       <div style={{ textAlign: 'center', marginBottom: '20px' }}>
         <h1>2018 Wolves Team</h1>
       </div>
-      {selectedItemIndex !== null && (
+      {/* {selectedItemIndex !== null && (
         <Button onClick={() => setMode('view')} variant="contained" color="secondary" sx={{ marginBottom: '16px' }}>
           Save
         </Button>
@@ -91,7 +91,7 @@ export default function TitlebarBelowMasonryImageList() {
             sx={{ marginBottom: '16px' }}
           />
         </>
-      )}
+      )} */}
       <ImageList variant="masonry" cols={3} gap={8}>
         {imageStates.map((item, index) => (
           <ImageListItem key={item.mediaUrl} onClick={() => handleModeToggle(index)}>

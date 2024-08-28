@@ -54,7 +54,7 @@ export default function TitlebarBelowMasonryImageList() {
       <div style={{ textAlign: 'center', marginBottom: '20px' }}>
         <h1>2024 Wolves Team</h1>
       </div>
-      {selectedItemIndex !== null && (
+      {/* {selectedItemIndex !== null && (
         <Button onClick={() => setMode('view')} variant="contained" color="secondary" sx={{ marginBottom: '16px' }}>
           Save
         </Button>
@@ -77,7 +77,7 @@ export default function TitlebarBelowMasonryImageList() {
             sx={{ marginBottom: '16px' }}
           />
         </>
-      )}
+      )} */}
       <ImageList variant="masonry" cols={3} gap={8}>
         {imageStates.map((item, index) => (
           <ImageListItem key={item.mediaUrl} onClick={() => handleModeToggle(index)}>
