@@ -66,6 +66,13 @@
   body {
     @apply bg-background text-foreground;
     cursor: url('../../public/images/main-logo1.png'), auto !important;
+    background-image: url('/images/gallery-background.jpeg'); /* Set your background image here */
+    background-size: cover; /* Make sure the image covers the entire page */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the background from repeating */
+    min-height: 100vh; /* Ensure it covers the viewport height */
+    margin: 0;
+    padding: 0;
   }
 }
 

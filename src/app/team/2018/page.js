@@ -50,7 +50,21 @@ export default function TitlebarBelowMasonryImageList() {
   };
 
   return (
-    <Box sx={{ width: '80vw', maxWidth: '1200px', margin: '0 auto', overflowY: 'scroll', marginTop: '100px' }}>
+    <Box
+      style ={{
+        width: '80vw',
+        maxWidth: '1200px',
+        margin: '0 auto',
+        overflowY: 'scroll',
+        marginTop: '100px',
+        backgroundImage: 'url(/images/gallery-background.jpeg)', // Set your background image here
+        backgroundSize: 'cover', // Adjust how the background image is displayed
+        backgroundPosition: 'center', // Center the background image
+        backgroundRepeat: 'no-repeat', // Prevent the background from repeating
+        minHeight: '100vh', // Ensure the background covers the entire viewport height
+        padding: '20px', // Optional: Add padding if needed
+      }}
+    >
       <div style={{ textAlign: 'center', marginBottom: '20px' }}>
         <h1>2018 Wolves Team</h1>
       </div>
