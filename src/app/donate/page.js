@@ -96,7 +96,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 export default function ZellePaymentPage() {
   return (
     <Box sx={{ padding: '20px', maxWidth: '800px', margin: '0 auto', marginTop: '100px' }}>
-      <Box sx={{ textAlign: 'center', marginBottom: '40px' }}>
+      <Box sx={{ textAlign: 'center', marginBottom: '40px', color: '#ffffff' }}>
         <Typography variant="h2" component="h1" gutterBottom>
           Support the UEBL Wolves with Zelle
         </Typography>
@@ -126,7 +126,7 @@ export default function ZellePaymentPage() {
         </Typography>
       </Box>
 
-      <Box sx={{ textAlign: 'center', marginBottom: '40px' }}>
+      <Box sx={{ textAlign: 'center', marginBottom: '40px', color: '#ffffff' }}>
         <Typography variant="h5" component="h3" gutterBottom>
           Your Impact
         </Typography>
@@ -135,7 +135,7 @@ export default function ZellePaymentPage() {
         </Typography>
       </Box>
 
-      <Box sx={{ textAlign: 'center', marginBottom: '40px' }}>
+      <Box sx={{ textAlign: 'center', marginBottom: '40px', color: '#ffffff' }}>
         <Typography variant="h6" component="h4">
           Have Questions?
         </Typography>
