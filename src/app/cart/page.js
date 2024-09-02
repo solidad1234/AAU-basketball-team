@@ -7,9 +7,9 @@ export default function CartPage() {
 
   return (
     <div className="flex flex-col items-center mt-16">
-      <h1 className="text-2xl font-bold mb-4 mt-16">Your Cart</h1>
+      <h1 className="text-2xl font-bold mb-4 mt-16 text-white">Your Cart</h1>
       {cartItems.length === 0 ? (
-        <p>Your cart is empty.</p>
+        <p className='text-white'>Your cart is empty.</p>
       ) : (
         <div className="flex flex-wrap justify-center w-full">
           {cartItems.map((item, index) => (
@@ -24,7 +24,7 @@ export default function CartPage() {
 
               <button
                 onClick={() => removeItem(item.title)}
-                className="mt-4 px-4 py-2 bg-red-500 text-white rounded-md w-full hover:bg-red-600"
+                className="mt-4 px-4 py-2 bg-red-500 text-white rounded-md w-full hover:bg-red-600 text-white"
               >
                 Remove from Cart
               </button>

@@ -4,164 +4,145 @@ import Box from '@mui/material/Box';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
+import Lightbox from 'react-image-lightbox';
+import 'react-image-lightbox/style.css';
 
 export default function TitlebarBelowMasonryImageList() {
-  const [mode, setMode] = React.useState('view'); // 'view', 'changeImage', or 'changeDescription'
-  const [selectedItemIndex, setSelectedItemIndex] = React.useState(null);
-  const [imageStates, setImageStates] = React.useState(itemData.map(item => ({
-    ...item,
-    mediaUrl: item.img,
-    description: item.title,
-  })));
+  const [isOpen, setIsOpen] = React.useState(false);
+  const [photoIndex, setPhotoIndex] = React.useState(0);
 
-  const handleModeToggle = (index) => {
-    setSelectedItemIndex(index);
-    setMode(mode === 'view' ? 'changeImage' : (mode === 'changeImage' ? 'changeDescription' : 'view'));
+  const imageStates = [
+    { img: '/images/2018/img1.jpeg', title: 'Image 1' },
+    { img: '/videos/2018/vid2.mp4', title: 'Video 2' },
+    { img: '/videos/2018/vid3.mp4', title: 'Video 3' },
+    { img: '/images/2018/img2.jpeg', title: 'Image 2' },
+    { img: '/videos/2018/vid1.mp4', title: 'Video 1' },
+    { img: '/images/2018/img3.jpeg', title: 'Image 3' },
+    { img: '/videos/2018/vid4.mp4', title: 'Video 4' },
+  ];
+
+  const imageUrls = imageStates.map(item => item.img);
+
+  const handleOpenLightbox = (index) => {
+    setPhotoIndex(index);
+    setIsOpen(true);
   };
 
-  const handleImageUpload = (e) => {
-    if (selectedItemIndex !== null) {
-      const file = e.target.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onloadend = () => {
-          setImageStates(prevStates => {
-            const newStates = [...prevStates];
-            newStates[selectedItemIndex].mediaUrl = reader.result;
-            return newStates;
-          });
-          setMode('view');
-        };
-        reader.readAsDataURL(file);
-      }
-    }
+  const handleMovePrev = () => {
+    setPhotoIndex((prevIndex) => (prevIndex - 1 + imageUrls.length) % imageUrls.length);
   };
 
-  const handleDescriptionChange = (e) => {
-    if (selectedItemIndex !== null) {
-      setImageStates(prevStates => {
-        const newStates = [...prevStates];
-        newStates[selectedItemIndex].description = e.target.value;
-        return newStates;
-      });
+  const handleMoveNext = () => {
+    setPhotoIndex((prevIndex) => (prevIndex + 1) % imageUrls.length);
+  };
+
+  const renderLightboxContent = () => {
+    const currentItem = imageStates[photoIndex];
+    if (currentItem.img.endsWith('.mp4') || currentItem.img.endsWith('.webm') || currentItem.img.endsWith('.ogg')) {
+      return (
+        <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+          <video
+            controls
+            autoPlay
+            style={{ width: '100%', maxHeight: '80vh', objectFit: 'contain' }}
+          >
+            <source src={currentItem.img} type="video/mp4" />
+            <source src={currentItem.img.replace('.mp4', '.webm')} type="video/webm" />
+            <source src={currentItem.img.replace('.mp4', '.ogg')} type="video/ogg" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      );
     }
+    return <img src={currentItem.img} alt={currentItem.title} style={{ width: '100%', maxHeight: '80vh', objectFit: 'contain' }} />;
   };
 
   return (
     <Box
-      sx ={{
+      sx={{
         width: '80vw',
         maxWidth: '1200px',
         margin: '0 auto',
         overflowY: 'scroll',
         marginTop: '100px',
         backgroundImage: 'url(/images/gallery-background.jpeg)',
-        backgroundSize: 'cover', 
-        backgroundPosition: 'center', 
-        backgroundRepeat: 'no-repeat', 
-        minHeight: '100vh', 
-        padding: '20px', 
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        minHeight: '100vh',
+        padding: '20px',
       }}
     >
       <div style={{ textAlign: 'center', marginBottom: '20px' }}>
         <h1>2018 Wolves Team</h1>
       </div>
-      {/* {selectedItemIndex !== null && (
-        <Button onClick={() => setMode('view')} variant="contained" color="secondary" sx={{ marginBottom: '16px' }}>
-          Save
-        </Button>
-      )}
-      {mode === 'changeImage' && selectedItemIndex !== null && (
-        <>
-          <input type="file" accept="image/*" onChange={handleImageUpload} style={{ display: 'block', marginBottom: '16px' }} />
-        </>
-      )}
-      {mode === 'changeDescription' && selectedItemIndex !== null && (
-        <>
-          <TextField
-            label="New Description"
-            variant="outlined"
-            fullWidth
-            multiline
-            rows={4}
-            value={imageStates[selectedItemIndex].description}
-            onChange={handleDescriptionChange}
-            sx={{ marginBottom: '16px' }}
-          />
-        </>
-      )} */}
       <ImageList variant="masonry" cols={3} gap={8}>
         {imageStates.map((item, index) => (
-          <ImageListItem key={item.mediaUrl} onClick={() => handleModeToggle(index)}>
-            {item.mediaUrl.endsWith('.mp4') || item.mediaUrl.endsWith('.webm') || item.mediaUrl.endsWith('.ogg') ? (
+          <ImageListItem key={item.img} onClick={() => handleOpenLightbox(index)}>
+            {item.img.endsWith('.mp4') || item.img.endsWith('.webm') || item.img.endsWith('.ogg') ? (
               <video
                 controls
                 style={{ cursor: 'pointer', maxHeight: '400px', width: '100%', objectFit: 'cover' }}
               >
-                <source src={item.mediaUrl} type="video/mp4" />
-                <source src={item.mediaUrl.replace('.mp4', '.webm')} type="video/webm" />
-                <source src={item.mediaUrl.replace('.mp4', '.ogg')} type="video/ogg" />
+                <source src={item.img} type="video/mp4" />
+                <source src={item.img.replace('.mp4', '.webm')} type="video/webm" />
+                <source src={item.img.replace('.mp4', '.ogg')} type="video/ogg" />
                 Your browser does not support the video tag.
               </video>
             ) : (
               <img
-                srcSet={`${item.mediaUrl}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                src={item.mediaUrl}
-                alt={item.description}
+                srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                src={item.img}
+                alt={item.title}
                 loading="lazy"
                 style={{ cursor: 'pointer' }}
               />
             )}
             <ImageListItemBar
               position="below"
-              title={item.description}
+              title={item.title}
               sx={{ textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'normal' }}
             />
           </ImageListItem>
         ))}
       </ImageList>
+
+      {isOpen && (
+        <Lightbox
+          mainSrc={imageStates[photoIndex].img}
+          nextSrc={imageStates[(photoIndex + 1) % imageStates.length].img}
+          prevSrc={imageStates[(photoIndex - 1 + imageStates.length) % imageStates.length].img}
+          onCloseRequest={() => setIsOpen(false)}
+          onMovePrevRequest={handleMovePrev}
+          onMoveNextRequest={handleMoveNext}
+          imageCaption={imageStates[photoIndex].title}
+          animationDisabled={true} // Disable default animation for smoother custom experience
+          reactModalProps={{
+            shouldReturnFocusAfterClose: false,
+            ariaHideApp: false,
+            isOpen: true,
+            contentLabel: "Image/Video Lightbox",
+          }}
+          reactModalStyles={{
+            content: { background: 'rgba(0, 0, 0, 0.9)' },
+          }}
+        >
+          {renderLightboxContent()}
+        </Lightbox>
+      )}
     </Box>
   );
 }
 
-const itemData = [
-  {
-    img: '/images/2018/img1.jpeg',
-    title: '',
-  },
-  {
-    img: '/videos/2018/vid2.mp4',
-    title: '',
-  },
-  {
-    img: '/videos/2018/vid3.mp4',
-    title: '',
-  },
-  {
-    img: '/images/2018/img2.jpeg',
-    title: '',
-  },
-  {
-    img: '/images/2018/img3.jpeg',
-    title: '',
-  },
-  {
-    img: '/videos/2018/vid1.mp4',
-    title: '',
-  },
-  {
-    img: '/images/2018/img4.jpeg',
-    title: '',
-  },
-  {
-    img: '/images/2018/img5.jpeg',
-    title: '',
-  },
- 
-  {
-    img: '/videos/2018/vid4.mp4',
-    title: '',
-  }
-];
+
+// const itemData = [
+//   { img: '/images/2018/img1.jpeg', title: 'Image 1' },
+//   { img: '/videos/2018/vid2.mp4', title: 'Video 2' },
+//   { img: '/videos/2018/vid3.mp4', title: 'Video 3' },
+//   { img: '/images/2018/img2.jpeg', title: 'Image 2' },
+//   { img: '/images/2018/img3.jpeg', title: 'Image 3' },
+//   { img: '/videos/2018/vid1.mp4', title: 'Video 1' },
+//   { img: '/images/2018/img4.jpeg', title: 'Image 4' },
+//   { img: '/images/2018/img5.jpeg', title: 'Image 5' },
+//   { img: '/videos/2018/vid4.mp4', title: 'Video 4' },
+// ];
