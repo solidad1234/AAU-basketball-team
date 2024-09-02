@@ -116,7 +116,7 @@ export default function TeamPage() {
         <h2>Our Dedicated Team Members</h2>
       </div>
 
-      {selectedItemIndex !== null && (
+      {/* {selectedItemIndex !== null && (
         <Button onClick={() => setMode('view')} variant="contained" color="secondary" sx={{ marginBottom: '16px' }}>
           Save
         </Button>
@@ -139,7 +139,7 @@ export default function TeamPage() {
             sx={{ marginBottom: '16px' }}
           />
         </>
-      )}
+      )} */}
       <ImageList variant="masonry" cols={3} gap={8}>
         {imageStates.map((item, index) => (
           <ImageListItem key={item.mediaUrl} onClick={() => handleModeToggle(index)}>
