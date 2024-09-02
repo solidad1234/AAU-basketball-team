@@ -7,7 +7,7 @@ export default function HeroParallaxDemo() {
     <div
       style={{
         // backgroundImage: "url(/images/gallery-background.jpeg)",
-        backgroundColor: "#edf2f2", 
+        backgroundColor: "#120e0e", 
         minHeight: "100vh", 
         padding: "50px 20px",
         marginTop: "16px",
