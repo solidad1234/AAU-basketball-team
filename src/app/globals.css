@@ -69,7 +69,7 @@
     /* background-image: url('/images/gallery-background.jpeg');   */
     background-size: cover; 
     background-position: center; 
-    background-color: #120e0e;
+    /* background-color: #120e0e; */
     background-repeat: no-repeat; 
     min-height: 100vh; 
     margin: 0;

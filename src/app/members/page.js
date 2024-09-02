@@ -95,7 +95,7 @@ export default function TeamPage() {
     <Box sx={{ width: '90vw', maxWidth: '1400px', margin: '0 auto', overflowY: 'scroll', marginTop: '50px' }}>
       {/* Hero Section with Parallax Effect */}
       <Parallax
-        bgImage="/images/hero/background.jpg"
+        // bgImage="/images/hero/background.jpg"
         bgImageAlt="Hero Background"
         strength={500}
       >

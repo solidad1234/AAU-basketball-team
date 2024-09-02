@@ -65,7 +65,7 @@ export default function TitlebarBelowMasonryImageList() {
         margin: '0 auto',
         overflowY: 'scroll',
         marginTop: '100px',
-        backgroundImage: 'url(/images/gallery-background.jpeg)',
+        // backgroundImage: 'url(/images/gallery-background.jpeg)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
