@@ -6,6 +6,7 @@ import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
+import { useMediaQuery } from '@mui/material';
 
 export default function TitlebarBelowMasonryImageList() {
   const [mode, setMode] = React.useState('view'); // 'view', 'changeImage', or 'changeDescription'
@@ -15,6 +16,9 @@ export default function TitlebarBelowMasonryImageList() {
     mediaUrl: item.img,
     description: item.title,
   })));
+
+  const isSmallScreen = useMediaQuery('(max-width:600px)');
+  const isMediumScreen = useMediaQuery('(max-width:960px)');
 
   const handleModeToggle = (index) => {
     setSelectedItemIndex(index);
@@ -49,36 +53,18 @@ export default function TitlebarBelowMasonryImageList() {
     }
   };
 
+  const getColumns = () => {
+    if (isSmallScreen) return 1;
+    if (isMediumScreen) return 2;
+    return 3;
+  };
+
   return (
-    <Box sx={{ width: '80vw', maxWidth: '1200px', margin: '0 auto', overflowY: 'scroll', marginTop: '100px' }}>
+    <Box sx={{ width: '90vw', maxWidth: '1200px', margin: '0 auto', overflowY: 'scroll', marginTop: '100px' }}>
       <div style={{ textAlign: 'center', marginBottom: '20px' }}>
         <h1>2022 Wolves Team</h1>
       </div>
-      {/* {selectedItemIndex !== null && (
-        <Button onClick={() => setMode('view')} variant="contained" color="secondary" sx={{ marginBottom: '16px' }}>
-          Save
-        </Button>
-      )}
-      {mode === 'changeImage' && selectedItemIndex !== null && (
-        <>
-          <input type="file" accept="image/*" onChange={handleImageUpload} style={{ display: 'block', marginBottom: '16px' }} />
-        </>
-      )}
-      {mode === 'changeDescription' && selectedItemIndex !== null && (
-        <>
-          <TextField
-            label="New Description"
-            variant="outlined"
-            fullWidth
-            multiline
-            rows={4}
-            value={imageStates[selectedItemIndex].description}
-            onChange={handleDescriptionChange}
-            sx={{ marginBottom: '16px' }}
-          />
-        </>
-      )} */}
-      <ImageList variant="masonry" cols={3} gap={8}>
+      <ImageList variant="masonry" cols={getColumns()} gap={8}>
         {imageStates.map((item, index) => (
           <ImageListItem key={item.mediaUrl} onClick={() => handleModeToggle(index)}>
             {item.mediaUrl.endsWith('.mp4') || item.mediaUrl.endsWith('.webm') || item.mediaUrl.endsWith('.ogg') ? (

@@ -63,6 +63,7 @@ export default function CustomGalleryPage() {
         padding: '20px',
         overflowY: 'scroll',
         marginTop: '100px',
+        backgroundImage: "url(/images/background.jpeg)",
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',

@@ -60,7 +60,7 @@ function AuroraBackgroundDemo() {
         >
           <video
             className="rounded-md border video-style"
-            src="/videos/homevid.mp4" 
+            src="/videos/homevid1.mp4" 
             autoPlay
             muted
             loop
