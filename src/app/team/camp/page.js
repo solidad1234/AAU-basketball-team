@@ -101,88 +101,88 @@ export default function TitlebarBelowMasonryImageList() {
 const itemData = [
   {
     img: '/images/camp/img.jpeg',
-    title: 'Camp',
+    title: '',
   },
   {
     img: '/images/camp/img1.jpeg',
-    title: 'Camp',
+    title: '',
   },
   {
     img: '/images/camp/img2.jpeg',
-    title: 'Camp',
+    title: '',
   },
   {
     img: '/images/camp/img3.jpeg',
-    title: 'Camp',
+    title: '',
   },
   {
     img: '/images/camp/img4.jpeg',
-    title: 'Camp',
+    title: '',
   },
   {
     img: '/images/camp/img5.jpeg',
-    title: 'Camp',
+    title: '',
   },
   {
     img: '/images/camp/img6.jpeg',
-    title: 'Camp',
+    title: '',
   },
   {
     img: '/images/camp/img7.jpeg',
-    title: 'Camp',
+    title: '',
   },
   {
     img: '/images/camp/img8.jpeg',
-    title: 'Camp',
+    title: '',
   },
   {
     img: '/images/camp/img9.jpeg',
-    title: 'Camp',
+    title: '',
   },
   {
     img: '/images/camp/img10.jpeg',
-    title: 'Camp',
+    title: '',
   },
   {
     img: '/images/camp/img11.jpeg',
-    title: 'Camp',
+    title: '',
   },
   {
     img: '/images/camp/img12.jpeg',
-    title: 'Camp',
+    title: '',
   },
   {
     img: '/images/camp/img13.jpeg',
-    title: ' Camp',
+    title: '',
   },
   ,
   {
     img: '/images/camp/img14.jpeg',
-    title: 'Camp',
+    title: '',
   },
   {
     img: '/images/camp/img15.jpeg',
-    title: 'Camp',
+    title: '',
   },
   {
     img: '/images/camp/img16.jpeg',
-    title: 'Camp',
+    title: '',
   },
   {
     img: '/images/camp/img17.jpeg',
-    title: 'Camp',
+    title: '',
   },
   {
     img: '/images/camp/img18.jpeg',
-    title: 'Camp',
+    title: '',
   },
   {
     img: '/images/camp/img19.jpeg',
-    title: ' Camp',
+    title: '',
   },
   ,
   {
     img: '/images/camp/img20.jpeg',
-    title: 'Camp',
+    title: '',
   },
 ];

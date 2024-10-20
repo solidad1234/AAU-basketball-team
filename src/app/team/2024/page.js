@@ -99,67 +99,295 @@ export default function TitlebarBelowMasonryImageList() {
 }
 
 
+// const itemData = [
+//   {
+//     img: '/images/team2.jpeg',
+//     title: 'First Team',
+//   },
+//   {
+//     img: '/images/team3.jpeg',
+//     title: 'Team',
+//   },
+//   {
+//     img: '/videos/2024/2024vid5.mp4',
+//     title: 'Team',
+//   },
+//   {
+//     img: '/videos/2024/2024vid4.mp4',
+//     title: 'Team',
+//   },
+//   {
+//     img: '/images/team2.jpeg',
+//     title: 'Team',
+//   },
+//   {
+//     img: '/videos/2024/2024vid3.mp4',
+//     title: 'Team',
+//   },
+//   {
+//     img: '/images/team3.jpeg',
+//     title: 'Team',
+//   },
+//   {
+//     img: '/images/team2.jpeg',
+//     title: 'Team',
+//   },
+//   {
+//     img: '/images/team3.jpeg',
+//     title: 'Team',
+//   },
+//   {
+//     img: '/images/team2.jpeg',
+//     title: 'Team',
+//   },
+//   {
+//     img: '/images/team3.jpeg',
+//     title: 'Team',
+//   },
+//   {
+//     img: '/videos/2024/2024vid2.mp4',
+//     title: 'Team',
+//   },
+//   {
+//     img: '/videos/2024/2024vid1.mp4',
+//     title: 'Team',
+//   },
+//   {
+//     img: '/videos/2024/2024vid6.mp4',
+//     title: ' Video',
+//   },
+//   ,
+//   {
+//     img: '/videos/2024/2024vid7.mp4',
+//     title: ' Video',
+//   },
+  
+// ];
+
 const itemData = [
   {
-    img: '/images/team2.jpeg',
-    title: 'First Team',
+    img: '/images/classic/pic1.jpeg',
+    title: '',
   },
   {
-    img: '/images/team3.jpeg',
-    title: 'Team',
+    img: '/images/classic/pic2.jpeg',
+    title: '',
   },
   {
-    img: '/videos/2024/2024vid5.mp4',
-    title: 'Team',
+    img: '/images/classic/pic3.jpeg',
+    title: '',
   },
   {
-    img: '/videos/2024/2024vid4.mp4',
-    title: 'Team',
+    img: '/images/classic/pic4.jpeg',
+    title: '',
   },
   {
-    img: '/images/team2.jpeg',
-    title: 'Team',
+    img: '/images/classic/pic5.jpeg',
+    title: '',
   },
   {
-    img: '/videos/2024/2024vid3.mp4',
-    title: 'Team',
+    img: '/images/classic/pic6.jpeg',
+    title: '',
   },
   {
-    img: '/images/team3.jpeg',
-    title: 'Team',
+    img: '/images/classic/pic7.jpeg',
+    title: '',
   },
   {
-    img: '/images/team2.jpeg',
-    title: 'Team',
+    img: '/images/classic/pic8.jpeg',
+    title: '',
   },
   {
-    img: '/images/team3.jpeg',
-    title: 'Team',
+    img: '/images/classic/pic9.jpeg',
+    title: '',
   },
   {
-    img: '/images/team2.jpeg',
-    title: 'Team',
+    img: '/images/classic/pic10.jpeg',
+    title: '',
   },
   {
-    img: '/images/team3.jpeg',
-    title: 'Team',
+    img: '/images/classic/pic11.jpeg',
+    title: '',
   },
   {
-    img: '/videos/2024/2024vid2.mp4',
-    title: 'Team',
+    img: '/images/classic/pic12.jpeg',
+    title: '',
   },
   {
-    img: '/videos/2024/2024vid1.mp4',
-    title: 'Team',
-  },
-  {
-    img: '/videos/2024/2024vid6.mp4',
-    title: ' Video',
+    img: '/images/classic/pic13.jpeg',
+    title: '',
   },
   ,
   {
-    img: '/videos/2024/2024vid7.mp4',
-    title: ' Video',
+    img: '/images/classic/pic14.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/classic/pic15.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/classic/pic16.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/classic/pic17.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/classic/pic18.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/classic/pic19.jpeg',
+    title: '',
+  },
+  ,
+  {
+    img: '/images/classic/pic20.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/classic/pic21.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/classic/pic22.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/classic/pic23.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/classic/pic24.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/classic/pic25.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/classic/pic26.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/classic/pic27.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/classic/pic28.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/classic/pic29.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/classic/pic30.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/classic/pic31.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/classic/pic32.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/classic/pic33.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/classic/pic34.jpeg',
+    title: '',
+  },
+  ,
+  {
+    img: '/images/classic/pic35.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/classic/pic36.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/classic/pic37.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/classic/pic38.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/classic/pic39.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/classic/pic40.jpeg',
+    title: '',
+  },
+  ,
+  {
+    img: '/images/classic/pic41.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/classic/pic42.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/classic/pic43.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/classic/pic44.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/classic/pic45.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/classic/pic46.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/classic/pic47.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/classic/pic48.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/classic/pic49.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/classic/pic50.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/classic/pic51.jpeg',
+    title: '',
+  },
+  {
+    img: '/images/classic/pic52.jpeg',
+    title: '',
+  },
+  {
+    img: '/videos/classic/vid.mp4',
+    title: '',
+  },
+  {
+    img: '/videos/classic/vid1.mp4',
+    title: '',
+  },
+  {
+    img: '/videos/classic/vid2.mp4',
+    title: '',
   },
   
 ];

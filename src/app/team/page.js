@@ -6,7 +6,7 @@ export default function HeroParallaxDemo() {
   return (
     <div
       style={{
-        // backgroundImage: "url(/images/gallery-background.jpeg)",
+        backgroundImage: "url(/images/gallery-background.jpeg)",
         backgroundColor: "#120e0e", 
         minHeight: "100vh", 
         padding: "50px 20px",
@@ -71,7 +71,7 @@ export const products = [
   },
   {
     title: "UEBL Classic",
-    link: "/team/camp",
+    link: "/team/classic",
     thumbnail: "/images/classic.jpeg",  
   },
 ];
